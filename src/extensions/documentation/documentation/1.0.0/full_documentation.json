@@ -14,7 +14,7 @@
       "name": "Apache 2.0",
       "url": "https://www.apache.org/licenses/LICENSE-2.0.html"
     },
-    "x-generation-date": "2024-03-02T08:48:01.435Z"
+    "x-generation-date": "2024-03-05T16:31:17.059Z"
   },
   "x-strapi-config": {
     "path": "/documentation",
@@ -86,38 +86,6 @@
           }
         }
       },
-      "CourseLocalizationRequest": {
-        "required": [
-          "course_id",
-          "name",
-          "credit",
-          "prerequisite",
-          "is_open",
-          "locale"
-        ],
-        "type": "object",
-        "properties": {
-          "course_id": {
-            "type": "string"
-          },
-          "name": {
-            "type": "string"
-          },
-          "credit": {
-            "$ref": "#/components/schemas/CreditCreditComponent"
-          },
-          "prerequisite": {},
-          "description": {
-            "type": "string"
-          },
-          "is_open": {
-            "type": "boolean"
-          },
-          "locale": {
-            "type": "string"
-          }
-        }
-      },
       "CourseRequest": {
         "type": "object",
         "required": [
@@ -127,99 +95,35 @@
           "data": {
             "required": [
               "course_id",
-              "name",
+              "name_en",
               "credit",
               "prerequisite",
-              "is_open"
+              "is_open",
+              "name_th"
             ],
             "type": "object",
             "properties": {
               "course_id": {
                 "type": "string"
               },
-              "name": {
+              "name_en": {
                 "type": "string"
               },
               "credit": {
                 "$ref": "#/components/schemas/CreditCreditComponent"
               },
               "prerequisite": {},
-              "description": {
+              "description_en": {
                 "type": "string"
               },
               "is_open": {
                 "type": "boolean"
               },
-              "locale": {
+              "name_th": {
                 "type": "string"
-              }
-            }
-          }
-        }
-      },
-      "CourseResponseDataObjectLocalized": {
-        "type": "object",
-        "properties": {
-          "id": {
-            "type": "number"
-          },
-          "attributes": {
-            "$ref": "#/components/schemas/Course"
-          }
-        }
-      },
-      "CourseLocalizationResponse": {
-        "type": "object",
-        "properties": {
-          "data": {
-            "$ref": "#/components/schemas/CourseResponseDataObjectLocalized"
-          },
-          "meta": {
-            "type": "object"
-          }
-        }
-      },
-      "CourseListResponseDataItemLocalized": {
-        "type": "object",
-        "properties": {
-          "id": {
-            "type": "number"
-          },
-          "attributes": {
-            "$ref": "#/components/schemas/Course"
-          }
-        }
-      },
-      "CourseLocalizationListResponse": {
-        "type": "object",
-        "properties": {
-          "data": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/CourseListResponseDataItemLocalized"
-            }
-          },
-          "meta": {
-            "type": "object",
-            "properties": {
-              "pagination": {
-                "type": "object",
-                "properties": {
-                  "page": {
-                    "type": "integer"
-                  },
-                  "pageSize": {
-                    "type": "integer",
-                    "minimum": 25
-                  },
-                  "pageCount": {
-                    "type": "integer",
-                    "maximum": 1
-                  },
-                  "total": {
-                    "type": "integer"
-                  }
-                }
+              },
+              "description_th": {
+                "type": "string"
               }
             }
           }
@@ -275,27 +179,34 @@
         "type": "object",
         "required": [
           "course_id",
-          "name",
+          "name_en",
           "credit",
           "prerequisite",
-          "is_open"
+          "is_open",
+          "name_th"
         ],
         "properties": {
           "course_id": {
             "type": "string"
           },
-          "name": {
+          "name_en": {
             "type": "string"
           },
           "credit": {
             "$ref": "#/components/schemas/CreditCreditComponent"
           },
           "prerequisite": {},
-          "description": {
+          "description_en": {
             "type": "string"
           },
           "is_open": {
             "type": "boolean"
+          },
+          "name_th": {
+            "type": "string"
+          },
+          "description_th": {
+            "type": "string"
           },
           "createdAt": {
             "type": "string",
@@ -594,20 +505,6 @@
                 }
               }
             }
-          },
-          "localizations": {
-            "type": "object",
-            "properties": {
-              "data": {
-                "type": "array",
-                "items": {
-                  "$ref": "#/components/schemas/CourseListResponseDataItemLocalized"
-                }
-              }
-            }
-          },
-          "locale": {
-            "type": "string"
           }
         }
       },
@@ -660,6 +557,7 @@
           "slug",
           "title",
           "sub_title",
+          "general_name",
           "locale"
         ],
         "type": "object",
@@ -707,6 +605,9 @@
           "sub_title": {
             "type": "string"
           },
+          "general_name": {
+            "type": "string"
+          },
           "locale": {
             "type": "string"
           }
@@ -724,7 +625,8 @@
               "abbreviation",
               "slug",
               "title",
-              "sub_title"
+              "sub_title",
+              "general_name"
             ],
             "type": "object",
             "properties": {
@@ -769,6 +671,9 @@
                 "type": "string"
               },
               "sub_title": {
+                "type": "string"
+              },
+              "general_name": {
                 "type": "string"
               },
               "locale": {
@@ -899,7 +804,8 @@
           "abbreviation",
           "slug",
           "title",
-          "sub_title"
+          "sub_title",
+          "general_name"
         ],
         "properties": {
           "full_name": {
@@ -925,7 +831,7 @@
                         "course_id": {
                           "type": "string"
                         },
-                        "name": {
+                        "name_en": {
                           "type": "string"
                         },
                         "credit": {
@@ -949,11 +855,17 @@
                           }
                         },
                         "prerequisite": {},
-                        "description": {
+                        "description_en": {
                           "type": "string"
                         },
                         "is_open": {
                           "type": "boolean"
+                        },
+                        "name_th": {
+                          "type": "string"
+                        },
+                        "description_th": {
+                          "type": "string"
                         },
                         "createdAt": {
                           "type": "string",
@@ -1252,18 +1164,6 @@
                               }
                             }
                           }
-                        },
-                        "localizations": {
-                          "type": "object",
-                          "properties": {
-                            "data": {
-                              "type": "array",
-                              "items": {}
-                            }
-                          }
-                        },
-                        "locale": {
-                          "type": "string"
                         }
                       }
                     }
@@ -1622,6 +1522,9 @@
                                     "sub_title": {
                                       "type": "string"
                                     },
+                                    "general_name": {
+                                      "type": "string"
+                                    },
                                     "createdAt": {
                                       "type": "string",
                                       "format": "date-time"
@@ -1758,6 +1661,9 @@
             "type": "string"
           },
           "sub_title": {
+            "type": "string"
+          },
+          "general_name": {
             "type": "string"
           },
           "createdAt": {
@@ -3315,7 +3221,7 @@
                                     "course_id": {
                                       "type": "string"
                                     },
-                                    "name": {
+                                    "name_en": {
                                       "type": "string"
                                     },
                                     "credit": {
@@ -3339,11 +3245,17 @@
                                       }
                                     },
                                     "prerequisite": {},
-                                    "description": {
+                                    "description_en": {
                                       "type": "string"
                                     },
                                     "is_open": {
                                       "type": "boolean"
+                                    },
+                                    "name_th": {
+                                      "type": "string"
+                                    },
+                                    "description_th": {
+                                      "type": "string"
                                     },
                                     "createdAt": {
                                       "type": "string",
@@ -3390,18 +3302,6 @@
                                           }
                                         }
                                       }
-                                    },
-                                    "localizations": {
-                                      "type": "object",
-                                      "properties": {
-                                        "data": {
-                                          "type": "array",
-                                          "items": {}
-                                        }
-                                      }
-                                    },
-                                    "locale": {
-                                      "type": "string"
                                     }
                                   }
                                 }
@@ -3536,6 +3436,9 @@
                         "type": "string"
                       },
                       "sub_title": {
+                        "type": "string"
+                      },
+                      "general_name": {
                         "type": "string"
                       },
                       "createdAt": {
@@ -6087,98 +5990,6 @@
           }
         ],
         "operationId": "delete/courses/{id}"
-      }
-    },
-    "/courses/{id}/localizations": {
-      "post": {
-        "responses": {
-          "200": {
-            "description": "OK",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/CourseLocalizationResponse"
-                }
-              }
-            }
-          },
-          "400": {
-            "description": "Bad Request",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Error"
-                }
-              }
-            }
-          },
-          "401": {
-            "description": "Unauthorized",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Error"
-                }
-              }
-            }
-          },
-          "403": {
-            "description": "Forbidden",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Error"
-                }
-              }
-            }
-          },
-          "404": {
-            "description": "Not Found",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Error"
-                }
-              }
-            }
-          },
-          "500": {
-            "description": "Internal Server Error",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Error"
-                }
-              }
-            }
-          }
-        },
-        "tags": [
-          "Course"
-        ],
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "description": "",
-            "deprecated": false,
-            "required": true,
-            "schema": {
-              "type": "number"
-            }
-          }
-        ],
-        "operationId": "post/courses/{id}/localizations",
-        "requestBody": {
-          "required": true,
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/CourseLocalizationRequest"
-              }
-            }
-          }
-        }
       }
     },
     "/degrees": {

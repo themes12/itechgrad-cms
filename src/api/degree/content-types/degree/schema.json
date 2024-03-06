@@ -71,6 +71,15 @@
       },
       "type": "string",
       "required": true
+    },
+    "general_name": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "string",
+      "required": true
     }
   }
 }

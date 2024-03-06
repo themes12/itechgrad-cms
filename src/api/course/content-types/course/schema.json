@@ -10,70 +10,51 @@
   "options": {
     "draftAndPublish": true
   },
-  "pluginOptions": {
-    "i18n": {
-      "localized": true
-    }
-  },
+  "pluginOptions": {},
   "attributes": {
     "course_id": {
       "type": "string",
       "unique": false,
       "required": true,
-      "pluginOptions": {
-        "i18n": {
-          "localized": false
-        }
-      }
+      "pluginOptions": {}
     },
-    "name": {
+    "name_en": {
       "type": "string",
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      },
+      "pluginOptions": {},
       "unique": false,
       "required": true
     },
     "credit": {
       "type": "component",
       "repeatable": false,
-      "pluginOptions": {
-        "i18n": {
-          "localized": false
-        }
-      },
+      "pluginOptions": {},
       "component": "credit.credit",
       "required": true
     },
     "prerequisite": {
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      },
+      "pluginOptions": {},
       "type": "json",
       "required": true
     },
-    "description": {
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      },
+    "description_en": {
+      "pluginOptions": {},
       "type": "text",
       "required": false
     },
     "is_open": {
-      "pluginOptions": {
-        "i18n": {
-          "localized": false
-        }
-      },
+      "pluginOptions": {},
       "type": "boolean",
       "default": false,
       "required": true
+    },
+    "name_th": {
+      "pluginOptions": {},
+      "type": "string",
+      "required": true
+    },
+    "description_th": {
+      "pluginOptions": {},
+      "type": "text"
     }
   }
 }
