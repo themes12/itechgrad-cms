@@ -55,6 +55,11 @@
     "description_th": {
       "pluginOptions": {},
       "type": "text"
+    },
+    "degree": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::degree.degree"
     }
   }
 }
