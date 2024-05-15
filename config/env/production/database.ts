@@ -7,11 +7,11 @@ export default ({ env }) => ({
   connection: {
     client: 'postgres',
     connection: {
-      host: config.host,
-      port: config.port,
-      database: config.database,
-      user: config.user,
-      password: config.password,
+      host: env('DATABASE_HOST'),
+      port: env('DATABASE_PORT'),
+      database: env('DATABASE_NAME'),
+      user: env('DATABASE_USERNAME'),
+      password: env('DATABASE_PASSWORD'),
       ssl: {
         rejectUnauthorized: false
       },
